@@ -1,3 +1,6 @@
+Based on this Udacity repository:
+https://github.com/udacity/motionlayout/tree/master/motionlayout-start
+
 # MotionLayout Codelab
 
 This folder contains the source code for the Motion Layout codelab.
