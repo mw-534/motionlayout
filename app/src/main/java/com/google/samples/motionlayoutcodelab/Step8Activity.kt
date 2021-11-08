@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.appbar.AppBarLayout
+import kotlinx.android.synthetic.main.activity_step8.*
 
 class Step8Activity : AppCompatActivity() {
 
@@ -33,7 +34,15 @@ class Step8Activity : AppCompatActivity() {
     }
 
     private fun coordinateMotion() {
-        // TODO: set progress of MotionLayout based on an AppBarLayout.OnOffsetChangedListener
+        // Set progress of MotionLayout based on an AppBarLayout.OnOffsetChangedListener
+        val appBarLayout: AppBarLayout = findViewById(R.id.appbar_layout)
+        val motionLayout: MotionLayout = findViewById(R.id.motion_layout)
 
+        val listener = AppBarLayout.OnOffsetChangedListener { unused, verticalOffset ->
+            val seekPosition = -verticalOffset / appBarLayout.totalScrollRange.toFloat()
+            motionLayout.progress = seekPosition
+        }
+
+        appBarLayout.addOnOffsetChangedListener(listener)
     }
 }
